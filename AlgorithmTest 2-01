@@ -1,0 +1,174 @@
+import heapq
+def solution(answers):
+    i=len(answers)//5
+    j=len(answers)//8
+    k=len(answers)//10
+    count1,count2,count3 = 0,0,0
+    a=[1,2,3,4,5]
+    b=[2,1,2,3,2,4,2,5]
+    c=[3,3,1,1,2,2,4,4,5,5]
+    answer = []
+    if len(answers) % 5 ==1:
+        answer1=a*i
+        answer1.append(1)
+    elif len(answers) % 5 ==2:
+        answer1=a*i
+        answer1.append(1)
+        answer1.append(2)
+    elif len(answers) % 5 ==3:
+        answer1=a*i
+        answer1.append(1)
+        answer1.append(2)
+        answer1.append(3)
+    elif len(answers) % 5 ==4:
+        answer1=a*i
+        answer1.append(1)
+        answer1.append(2)
+        answer1.append(3)
+        answer1.append(4)
+    elif len(answers) % 5 ==0:
+        answer1=a*(i-1)
+        answer1.append(1)
+        answer1.append(2)
+        answer1.append(3)
+        answer1.append(4)
+        answer1.append(5) 
+    if len(answers) % 8 ==1:
+        answer2=b*j
+        answer2.append(2)
+    elif len(answers) % 8 ==2:
+        answer2=b*j
+        answer2.append(2)  
+        answer2.append(1) 
+    elif len(answers) % 8 ==3:
+        answer2=b*j
+        answer2.append(2)  
+        answer2.append(1)
+        answer2.append(2)
+    elif len(answers) % 8 ==4:
+        answer2=b*j
+        answer2.append(2)  
+        answer2.append(1)
+        answer2.append(2)
+        answer2.append(3)
+    elif len(answers) % 8 ==5:
+        answer2=b*j
+        answer2.append(2)  
+        answer2.append(1)
+        answer2.append(2)
+        answer2.append(3)
+        answer2.append(2)
+    elif len(answers) % 8 ==6:
+        answer2=b*j
+        answer2.append(2)  
+        answer2.append(1)
+        answer2.append(2)
+        answer2.append(3)
+        answer2.append(2)
+        answer2.append(4)
+    elif len(answers) % 8 ==7:
+        answer2=b*j
+        answer2.append(2)  
+        answer2.append(1)
+        answer2.append(2)
+        answer2.append(3)
+        answer2.append(2)
+        answer2.append(4)   
+        answer2.append(2)
+    elif len(answers) % 8 ==0:
+        answer2=b*(j-1)
+        answer2.append(2)  
+        answer2.append(1)
+        answer2.append(2)
+        answer2.append(3)
+        answer2.append(2)
+        answer2.append(4)   
+        answer2.append(2)
+        answer2.append(5)
+    if len(answers) % 10 ==1:
+        answer3=b*k
+        answer3.append(3)
+    elif len(answers) % 10 ==2:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+    elif len(answers) % 10 ==3:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+    elif len(answers) % 10 ==4:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+        answer3.append(1)
+    elif len(answers) % 10 ==5:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+        answer3.append(1)
+        answer3.append(2)
+    elif len(answers) % 10 ==6:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+        answer3.append(1)
+        answer3.append(2)
+        answer3.append(2)
+    elif len(answers) % 10 ==7:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+        answer3.append(1)
+        answer3.append(2)
+        answer3.append(2)
+        answer3.append(4)
+    elif len(answers) % 10 ==8:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+        answer3.append(1)
+        answer3.append(2)
+        answer3.append(2)
+        answer3.append(4)
+        answer3.append(4)
+    elif len(answers) % 10 ==9:
+        answer3=b*k
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+        answer3.append(1)
+        answer3.append(2)
+        answer3.append(2)
+        answer3.append(4)
+        answer3.append(4)
+        answer3.append(5)
+    elif len(answers) % 10 ==0:
+        answer3=b*(k-1)
+        answer3.append(3)
+        answer3.append(3)
+        answer3.append(1)
+        answer3.append(1)
+        answer3.append(2)
+        answer3.append(2)
+        answer3.append(4)
+        answer3.append(4)
+        answer3.append(5)
+        answer3.append(5)
+    for i in range(len(answers)):
+        if answer1[i] == answers[i]:
+            count1 +=1
+        if answer2[i] == answers[i]:
+            count2 +=1
+        if answer3[i] == answers[i]:
+            count3 +=1
+    answer.append(count1)
+    answer.append(count2)
+    answer.append(count3)
+    list = [i+1 for i, ans in enumerate(answer) if ans == max(answer)]
+    return list
